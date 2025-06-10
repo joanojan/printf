@@ -6,7 +6,7 @@
 /*   By: jvila-va <jvila-va@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 09:31:39 by jvila-va          #+#    #+#             */
-/*   Updated: 2025/06/09 12:30:20 by jvila-va         ###   ########.fr       */
+/*   Updated: 2025/06/10 23:30:06 by jvila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 static int	handle_format_specifier(const char c, va_list args)
 {
-	int	printed;
-
-	printed = 0;
 	if (c == 's')
-		printed = ft_print_va_str(args);
+		return (ft_print_va_str(args));
 	if (c == 'c')
-		printed = ft_print_va_chr(args);
+		return (ft_print_va_chr(args));
 	if (c == 'd' || c == 'i')
-		printed = ft_print_va_int(args);
+		return (ft_print_va_int(args));
 	if (c == 'u')
-		printed = ft_print_va_uint(args);
+		return (ft_print_va_uint(args));
 	if (c == 'p')
-		printed = ft_print_va_ptr(args);
+		return (ft_print_va_ptr(args));
 	if (c == 'x' || c == 'X')
-		printed = ft_print_va_hex(args, c);
+		return (ft_print_va_hex(args, c));
 	if (c == '%')
-		printed = ft_putchar_fd(c, STDOUT_FILENO);
-	return (printed);
+		return (ft_putchar_fd(c, STDOUT_FILENO));
+	return (-1);
 }
 
 /*	write the output under the control of a format string  that specifies
@@ -48,16 +45,17 @@ int	ft_printf(const char *fmt, ...)
 	va_start(args, fmt);
 	while (*fmt)
 	{
-		printed = 1;
+		printed = 0;
 		if (*fmt == '%')
 		{
 			fmt++;
-			printed = handle_format_specifier(*fmt, args);
-			if (!printed)
-				printed = ft_putchar_fd(*(--fmt), STDOUT_FILENO);
+			if (ft_strchr(CONVERSION, *fmt))
+				printed = handle_format_specifier(*fmt, args);
+			else
+				printed = ft_putchar_fd('%', STDOUT_FILENO);
 		}
 		else
-			ft_putchar_fd(*fmt, STDOUT_FILENO);
+			printed = ft_putchar_fd(*fmt, STDOUT_FILENO);
 		fmt++;
 		count += printed;
 	}

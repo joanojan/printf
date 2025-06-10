@@ -3,8 +3,6 @@ CC 			:= cc
 CFLAGS 		:= -Wall -Wextra -Werror
 
 LIBFT_DIR	:= libft/
-LIBFT_SRCS	:= $(wildcard $(LIBFT_DIR)/*.c)
-LIBFT_H		:= $(wildcard $(LIBFT_DIR)/*.h)
 LIBFT		:= $(LIBFT_DIR)/libft.a
 
 SRCS :=	\
@@ -27,7 +25,7 @@ $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
 	@echo "✓ $(NAME) created successfully"
 
-$(LIBFT): $(LIBFT_SRCS) $(LIBFT_H) $(LIBFT_DIR)/Makefile
+$(LIBFT): 
 	@echo "Building libft..."
 	@$(MAKE) -C $(LIBFT_DIR)
 

@@ -6,17 +6,17 @@
 /*   By: jvila-va <jvila-va@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 15:23:11 by jvila-va          #+#    #+#             */
-/*   Updated: 2025/06/10 23:06:48 by jvila-va         ###   ########.fr       */
+/*   Updated: 2025/06/11 09:32:39 by jvila-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H 
 # define FT_PRINTF_H
 
-# define CONVERSION "cspdiuxX%"
-
 # include <stdarg.h>
 # include "libft/libft.h"
+
+# define CONVERSION "cspdiuxX%"
 
 int	ft_printf(const char *fmt, ...);
 int	ft_print_va_str(va_list args);

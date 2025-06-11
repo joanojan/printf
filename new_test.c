@@ -70,48 +70,5 @@ int main(void)
     result = ft_printf("%d %d %d", 1, 2, 3);
     printf("$\nresult = %d\n", result);
 
-	// >>> test 9 <<<
-	printf("\n\n>>> Test 9 <<<\n");
-	result = printf("%");
-	printf("\nresult = %d\n", result);
-	result = printf("%%%");
-	printf("\nresult = %d\n", result);
-	result = printf("%%k%k");
-	printf("\nresult = %d\n", result);
-	result = printf("% %  %   y%  % x", 11);
-	printf("\nresult = %d\n", result);
-	result = printf("   %");
-	printf("\nresult = %d\n", result);
-	result = printf("% k % d %i % ux");
-	printf("\nresult = %d\n", result);
-
-	// >>> test 10 <<<
-	printf("\n\n>>> Test 10 <<<\n");
-	result = printf("%s","");
-	printf("\nresult = %d\n", result);
-	result = ft_printf("%s","");
-	printf("\nresult = %d\n", result);
-
-	result = printf(" %s ","");
-	printf("\nresult = %d\n", result);
-	result = ft_printf(" %s ","");
-	printf("\nresult = %d\n", result);
-
-	result = printf(" %s ","");
-	printf("\nresult = %d\n", result);
-	result = ft_printf(" %s ","");
-	printf("\nresult = %d\n", result);
-
-	result = printf(" %s %s ", "","-");
-	printf("\nresult = %d\n", result);
-	result = ft_printf(" %s %s ", "","-");
-	printf("\nresult = %d\n", result);
-
-	result = printf("   %");
-	printf("\nresult = %d\n", result);
-	result = printf("% k % d %i % ux");
-	printf("\nresult = %d\n", result);
-
-
     return (0);
 }

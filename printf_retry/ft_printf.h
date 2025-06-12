@@ -16,8 +16,6 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-# define CONVERSION "cspdiuxX%"
-
 int	ft_printf(const char *fmt, ...);
 int	ft_print_va_str(va_list args);
 int	ft_print_va_chr(va_list args);

@@ -39,24 +39,21 @@ static int	handle_format_specifier(const char c, va_list args)
 int	ft_printf(const char *fmt, ...)
 {
 	int			count;
-	int			printed;
 	va_list		args;
 
 	count = 0;
 	va_start(args, fmt);
 	while (*fmt)
 	{
-		printed = 0;
 		if (*fmt == '%')
 		{
 			fmt++;
 			if (*fmt)
-				printed = handle_format_specifier(*fmt, args);
+				count += handle_format_specifier(*fmt, args);
 		}
 		else
-			printed = ft_putchar_fd(*fmt, STDOUT_FILENO);
+			count += ft_putchar_fd(*fmt, STDOUT_FILENO);
 		fmt++;
-		count += printed;
 	}
 	va_end(args);
 	return (count);
